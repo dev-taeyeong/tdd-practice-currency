@@ -2,6 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class DollarTest {
@@ -19,6 +20,7 @@ class DollarTest {
         assertThat(new Dollar(5).equals(new Dollar(6))).isFalse();
         assertThat(new Franc(5).equals(new Franc(5))).isTrue();
         assertThat(new Franc(5).equals(new Franc(6))).isFalse();
+        assertThat(new Franc(5).equals(new Dollar(5))).isFalse();
     }
 
     @Test
