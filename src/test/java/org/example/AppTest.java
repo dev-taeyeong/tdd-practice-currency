@@ -2,6 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class AppTest {
@@ -33,5 +34,10 @@ class AppTest {
     public void testCurrency() {
         assertThat(Money.dollar(1).currency()).isEqualTo("USD");
         assertThat(Money.franc(1).currency()).isEqualTo("CHF");
+    }
+
+    @Test
+    public void testDifferentClassEquality() {
+        assertThat(new Franc(10, "CHF")).isEqualTo(new Money(10, "CHF"));
     }
 }
